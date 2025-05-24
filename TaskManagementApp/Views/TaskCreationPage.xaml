@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskManagementApp.Views.TaskCreationPage"
+             Title="Create New Task">
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20">
+
+            <Label Text="Title" FontSize="Medium" />
+            <Entry Placeholder="Enter task title" Text="{Binding Title, Mode=TwoWay}" />
+
+            <Label Text="Description" FontSize="Medium" />
+            <Editor Placeholder="Enter task description" Text="{Binding Description, Mode=TwoWay}" HeightRequest="100" AutoSize="Disabled" />
+
+            <Label Text="Duration (HH:MM)" FontSize="Medium" />
+            <TimePicker Time="{Binding Duration, Mode=TwoWay}" Format="HH:mm" />
+            <!-- Or use an Entry for more flexible TimeSpan input if TimePicker is too restrictive:
+            <Entry Placeholder="e.g., 01:30 for 1h 30m" Text="{Binding DurationString, Mode=TwoWay}" /> 
+            -->
+
+            <Label Text="Repetition" FontSize="Medium" />
+            <Entry Placeholder="e.g., Daily, Weekly" Text="{Binding Repetition, Mode=TwoWay}" />
+            <!-- Consider using a Picker for predefined options:
+            <Picker Title="Select Repetition" SelectedItem="{Binding Repetition, Mode=TwoWay}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>None</x:String>
+                        <x:String>Daily</x:String>
+                        <x:String>Weekly</x:String>
+                        <x:String>Monthly</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            -->
+
+            <Label Text="Priority" FontSize="Medium" />
+            <Entry Placeholder="e.g., High, Medium, Low" Text="{Binding Priority, Mode=TwoWay}" />
+            <!-- Consider using a Picker for predefined options:
+            <Picker Title="Select Priority" SelectedItem="{Binding Priority, Mode=TwoWay}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Low</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>High</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            -->
+
+            <Label Text="Category" FontSize="Medium" />
+            <Entry Placeholder="e.g., Work, Personal" Text="{Binding Category, Mode=TwoWay}" />
+            <!-- Consider using a Picker for predefined options:
+            <Picker Title="Select Category" SelectedItem="{Binding Category, Mode=TwoWay}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Work</x:String>
+                        <x:String>Personal</x:String>
+                        <x:String>Study</x:String>
+                        <x:String>Other</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            -->
+
+            <Button Text="Save Task" Command="{Binding SaveTaskCommand}" Margin="0,20,0,0" HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
